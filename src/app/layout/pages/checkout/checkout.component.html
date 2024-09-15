@@ -9,6 +9,20 @@
         <div class="my-3">
             <label for="details">phone:</label>
             <input type="text" id="details" class="w-full rounded-lg border-gray-500 mt-2" formControlName="phone">
+            @if (checkoutForm.get('phone')?.errors && checkoutForm.get('phone')?.touched) 
+            {
+                <div class="p-4 mb-4 mt-5 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    @if (checkoutForm.get('phone')?.getError('required')) 
+                    {
+                        <p>Phone is required</p>
+                    }
+                    @if (checkoutForm.get('phone')?.getError('pattern')) 
+                    {
+                        <p>Phone is invalid</p>
+                    }
+                </div>
+
+            }
         </div>
         <div class="my-3">
             <label for="details">city:</label>

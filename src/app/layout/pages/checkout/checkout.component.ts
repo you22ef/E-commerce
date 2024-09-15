@@ -30,7 +30,7 @@ export class CheckoutComponent implements OnInit {
 
   checkoutForm:FormGroup = new FormGroup({
     details: new FormControl(null,[Validators.required]),
-    phone: new FormControl(null,[Validators.required]),
+    phone: new FormControl(null,[Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]),
     city: new FormControl(null,[Validators.required]),
   });
 
