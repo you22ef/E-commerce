@@ -21,7 +21,6 @@ export class BrandsComponent {
     }
     this._BrandsService.getBrands().subscribe({
       next: (response) => {
-        console.log(response);
         this.myBrands = response.data;
       },
       error: (err) => {

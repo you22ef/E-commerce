@@ -53,7 +53,6 @@ export class CartComponent implements OnDestroy{
   {
      this.sub2 = this._CartService.updateProductQuantity(pid, pCount.toString()).subscribe({
       next: (response) => {
-        console.log(response);
         this.myCart = response;
         this._toastr.success('Cart Updated Successfully');
       },
@@ -84,7 +83,6 @@ export class CartComponent implements OnDestroy{
     this.sub4 =  this._CartService.clearCart().subscribe(
       {
         next: (res) => {
-          console.log(res);
           
           if(res.message == 'success')
           {

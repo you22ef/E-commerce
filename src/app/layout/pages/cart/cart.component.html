@@ -17,18 +17,18 @@
   
   
     @for (product of myCart?.data?.products; track $index) {
-      <div class="flex  items-center mb-5">
-        <div class="w-2/12">
+      <div class="flex items justify-center content-center items-center mb-5">
+        <div class="lg:w-2/12">
           <img [src]="product.product.imageCover" alt="">
         </div>
         
-        <div class="w-7/12 ms-4">
+        <div class="md:w-7/12 ms-4">
           <h2 class="font-extrabold">{{product.product.title}}</h2>
           <span>Price : {{product.price}}</span>
           <i class="fa-solid fa-trash text-red-500 cursor-pointer ms-4" (click)="removeProduct(product.product._id)"></i>
         </div>
 
-        <div class="w-3/12 flex gap-5 items-center">
+        <div class="md:w-3/12 flex justify-center gap-5 items-center">
             <i class="fa-solid  fa-plus-circle cursor-pointer" (click)="updateQuantity(product.product._id,product.count+1)"></i>
             <span>{{product.count}}</span>
             <i class="fa-solid  fa-minus-circle cursor-pointer" (click)="updateQuantity(product.product._id,product.count-1)"></i>

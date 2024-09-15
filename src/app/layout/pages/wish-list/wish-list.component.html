@@ -3,19 +3,16 @@
     <div class="flex items-center justify-between">
         <h1 class="text-main font-extrabold mt-5 mb-5 text-[30px]">My wish List</h1>
     </div>
-  
-    
-    
     
       @for (wihslist of WishList; track $index) {
         @if(data.includes(wihslist.id))
         {
-          <div class="flex  items-center mb-5">
-            <div class="w-2/12">
+          <div class="flex items items-center mb-5">
+            <div class="lg:w-2/12">
               <img [src]="wihslist?.imageCover" alt="">
             </div>
             
-            <div class="w-10/12 md:ms-4 flex justify-between">
+            <div class="md:w-10/12 w-full md:ms-4 flex justify-between">
               <div>
                 <h2 class="font-extrabold">{{wihslist?.title}}</h2>
                 <span>Price : {{wihslist?.price}}</span>

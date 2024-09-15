@@ -22,7 +22,6 @@ export class CategoriesComponent {
 
     this._CategoriesService.getCategories().subscribe({
       next: (response) => {
-        console.log(response);
         this.myCategories = response.data;
       },
       error: (err) => {

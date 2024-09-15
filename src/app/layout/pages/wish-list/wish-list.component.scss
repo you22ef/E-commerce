@@ -1,0 +1,18 @@
+button
+{
+    width: 150px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 960px){
+    .items
+    {
+        flex-direction: column;
+        
+    }
+    img
+    {
+        width: 100%;
+    }
+}
+

@@ -39,7 +39,6 @@ export class CheckoutComponent implements OnInit {
     this.isLoading = true;
     this._CheckoutService.checkout(this.myCary,this.checkoutForm.value).subscribe({
       next: (response) => {
-        console.log(response);
         
         this.isLoading = false;
         window.open(response.session.url,'self'); 

@@ -11,7 +11,7 @@
     @for (product of productList | filter: searchTerm; track $index) 
     {
         <div class="md:w-1/4 card cursor-pointer  p-2" [title]="product.title">
-            <div class="product flex flex-col justify-between p-3">
+            <div class="product flex flex-col justify-between   p-3">
                 <div [routerLink]="['/product-details',product._id]" >
                     <img [src]="product.imageCover" class="w-full" alt="">
                     <h3 class="text-main font-extrabold">{{product.category.name}}</h3>
@@ -33,7 +33,7 @@
                         </span>
                     </div>
                 </div>
-                <button class="btn-main mt-3 w-full" (click)="addProduct(product._id)">Add Product
+                <button class="btn-main btn mt-3 w-full" (click)="addProduct(product._id)">Add Product
                     @if (isloading) 
                     {
                         <i class="fa fa-spin fa-spinner"></i>

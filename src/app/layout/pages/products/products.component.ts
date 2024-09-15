@@ -56,9 +56,7 @@ export class ProductsComponent implements OnDestroy {
     });
     this.sub2 = this._WishlistService.getWishlist().subscribe({
       next: (response) => {
-        console.log(response);
         const newData = response.data.map((item:any)=> item._id);
-        console.log(newData);
         
         this.data = newData;
       },
@@ -112,7 +110,7 @@ export class ProductsComponent implements OnDestroy {
   removeProductFromWishlist(pId:string, event:MouseEvent)
   {
     event.stopPropagation();
-    this . sub4 = this._WishlistService.removeSpecItem(pId).subscribe({
+    this.sub4 = this._WishlistService.removeSpecItem(pId).subscribe({
       next: (res) => {
         this._toastr.success(res.message);
         const target = event.target as HTMLElement;
