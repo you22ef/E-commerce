@@ -1,0 +1,14 @@
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-9  px-14 mt-14">
+    @for (brand of myBrands; track $index) 
+    {
+        <div class="w-full md:w-[100%] lg:w-[100%] categories border-gray-200 bg-white border rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
+            <div>
+                <img class=" w-full object-cover" [src]="brand.image" [alt]="brand.slug" />
+            </div>
+            
+            <div class="p-5">
+                <p class="font-bold text-main text-center capitalize">{{brand.slug}}</p>
+            </div>
+        </div>
+    }
+</div>

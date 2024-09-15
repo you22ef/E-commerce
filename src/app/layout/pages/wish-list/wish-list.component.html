@@ -1,0 +1,41 @@
+<div class="w-3/4 mx-auto">
+
+    <div class="flex items-center justify-between">
+        <h1 class="text-main font-extrabold mt-5 mb-5 text-[30px]">My wish List</h1>
+    </div>
+  
+    
+    
+    
+      @for (wihslist of WishList; track $index) {
+        @if(data.includes(wihslist.id))
+        {
+          <div class="flex  items-center mb-5">
+            <div class="w-2/12">
+              <img [src]="wihslist?.imageCover" alt="">
+            </div>
+            
+            <div class="w-7/12 ms-4 flex justify-between">
+              <div>
+                <h2 class="font-extrabold">{{wihslist?.title}}</h2>
+                <span>Price : {{wihslist?.price}}</span>
+                <i class="fa-solid fa-trash text-red-500 cursor-pointer ms-4" (click)="removeProductFromWishlist(wihslist.id, $event)" ></i>
+              </div>
+              <div>
+                <button class="btn-main" (click)="addProductToCart(wihslist.id,$event)">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+
+        }
+      }
+      @empty 
+      {
+        <div class="flex justify-center align-middle">
+          <img src="./assets/images/empty-cart.png" alt="emptyCart">
+        </div>
+        
+      }
+      
+  </div>
+    

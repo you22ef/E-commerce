@@ -1,0 +1,55 @@
+<div class="w-3/4 mx-auto">
+  @if (myCart?.data?.products?.length !== 0) 
+  {
+    <div class="flex items-center justify-between">
+      <div>
+        <h2 class="text-main text-[30px] font-extrabold">Shop cart</h2>
+        <h5>total price : {{myCart?.data?.totalCartPrice}}</h5>
+      </div>
+      <div>
+        <button  [routerLink]="['/checkout',myCart?.cartId]"  class="btn-main">Check out</button>
+      </div>
+      
+    </div>
+
+  }
+  
+  
+  
+    @for (product of myCart?.data?.products; track $index) {
+      <div class="flex  items-center mb-5">
+        <div class="w-2/12">
+          <img [src]="product.product.imageCover" alt="">
+        </div>
+        
+        <div class="w-7/12 ms-4">
+          <h2 class="font-extrabold">{{product.product.title}}</h2>
+          <span>Price : {{product.price}}</span>
+          <i class="fa-solid fa-trash text-red-500 cursor-pointer ms-4" (click)="removeProduct(product.product._id)"></i>
+        </div>
+
+        <div class="w-3/12 flex gap-5 items-center">
+            <i class="fa-solid  fa-plus-circle cursor-pointer" (click)="updateQuantity(product.product._id,product.count+1)"></i>
+            <span>{{product.count}}</span>
+            <i class="fa-solid  fa-minus-circle cursor-pointer" (click)="updateQuantity(product.product._id,product.count-1)"></i>
+          </div>
+      </div>
+      
+    }
+    @empty 
+    {
+      <div class="flex justify-center align-middle">
+        <img src="./assets/images/empty-cart.png" alt="emptyCart">
+      </div>
+      
+    }
+
+    @if(myCart?.data?.products?.length !== 0)
+    {
+      <div class="mx-auto flex justify-center">
+        <button class="btn-main w-10/12 " (click)="clear()">Clear Cart</button>
+      </div>
+    }
+    
+</div>
+  

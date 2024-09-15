@@ -1,0 +1,14 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 justify-items-center px-14 mt-14">
+    @for (category of myCategories; track $index) 
+    {
+        <div class="w-full md:w-[100%] lg:w-[100%] categories border-gray-200 bg-white border rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
+            <div>
+                <img class="h-72 w-full object-cover" [src]="category.image" [alt]="category.slug" />
+            </div>
+            
+            <div class="p-5">
+                <p class="font-bold text-main text-center capitalize">{{category.slug}}</p>
+            </div>
+        </div>
+    }
+</div>

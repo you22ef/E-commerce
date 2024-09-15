@@ -1,0 +1,27 @@
+<div class="w-10/12 mx-auto">
+    <h2 class="text-main" >Pay Now:</h2>
+    <form [formGroup]="checkoutForm" (ngSubmit)="checkoutApi()" class="mt-6">
+
+        <div class="my-3">
+            <label for="details">Details:</label>
+            <input type="text" id="details" class="w-full rounded-lg border-gray-500 mt-2" formControlName="details">
+        </div>
+        <div class="my-3">
+            <label for="details">phone:</label>
+            <input type="text" id="details" class="w-full rounded-lg border-gray-500 mt-2" formControlName="phone">
+        </div>
+        <div class="my-3">
+            <label for="details">city:</label>
+            <input type="text" id="details" class="w-full rounded-lg border-gray-500 mt-2" formControlName="city">
+        </div>
+        
+        <div class="flex justify-between align-middle">
+            <button [disabled]="checkoutForm.invalid" class="btn-main block ms-auto">
+                Payment
+                @if(isLoading)
+                {
+                    <i class="fa-solid fa-spin fa-spinner"></i>
+                }
+            </button>
+        </div>
+    </form>
