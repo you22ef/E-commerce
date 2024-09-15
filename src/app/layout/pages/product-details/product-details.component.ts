@@ -3,6 +3,8 @@ import { ProductService } from '../../../shared/services/product/product.service
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../../shared/interfaces/product';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { CartService } from '../../../shared/services/cart/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -31,7 +33,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   myProduct!: Product;
-  constructor(private _productService: ProductService,private _activatedRoute:ActivatedRoute)
+  constructor(private _productService: ProductService,private _activatedRoute:ActivatedRoute, private _CartService:CartService, private _toastr:ToastrService)
   {
 
   }
@@ -59,6 +61,19 @@ export class ProductDetailsComponent implements OnInit {
       localStorage.setItem('currentPage', `/product-details/${this.id}`);
     }
     
+  }
+
+  addProduct()
+  {
+    this._CartService.addProductToCart(this.id).subscribe({
+      next: (res) => {
+        this._CartService.cartNum.next(res.numOfCartItems);
+        this._toastr.success(res.message);
+      },
+      error: (err) => {
+        this._toastr.success(err.message);
+      }
+    });
   }
 
 }
