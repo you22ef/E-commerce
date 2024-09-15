@@ -41,11 +41,8 @@ export class ProductsComponent implements OnDestroy {
 
   ngOnInit()
   {
-    if(typeof localStorage !== 'undefined')
-    {
-      localStorage.setItem('wishList', 'false');
-    }
-    if(typeof localStorage !== 'undefined')
+
+    if(typeof localStorage !== 'undefined' && localStorage.getItem('home') === null )
     {
       localStorage.setItem('currentPage', '/product');
     }

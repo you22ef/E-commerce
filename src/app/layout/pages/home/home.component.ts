@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { ProductsComponent } from "../products/products.component";
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CategoriesService } from '../../../shared/services/categories/categories.service';
@@ -11,9 +11,15 @@ import { Category } from '../../../shared/interfaces/category';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent  {
+export class HomeComponent implements OnDestroy  {
   myCategories!:Category[];
   constructor(private _CategoriesService:CategoriesService){}
+  ngOnDestroy(): void {
+    if(typeof localStorage !== 'undefined')
+    {
+      localStorage.removeItem('home');
+    }
+  }
 
   customOptions: OwlOptions = {
     loop: true,
@@ -68,6 +74,7 @@ export class HomeComponent  {
     if(typeof localStorage !== 'undefined')
     {
       localStorage.setItem('currentPage', '/home');
+      localStorage.setItem('home', '/home');
     }
     this._CategoriesService.getCategories().subscribe({
       next: (response) => {

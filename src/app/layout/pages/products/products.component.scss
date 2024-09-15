@@ -6,3 +6,10 @@
 {
     height: 200px;
 }
+
+@media screen and (max-width: 960px) {
+    .card {
+      width: 50%;
+    }
+      
+  }
