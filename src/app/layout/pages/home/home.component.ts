@@ -78,6 +78,7 @@ export class HomeComponent implements OnDestroy  {
     }
     this._CategoriesService.getCategories().subscribe({
       next: (response) => {
+       
         this.myCategories = response.data;
       },
       error: (err) => {

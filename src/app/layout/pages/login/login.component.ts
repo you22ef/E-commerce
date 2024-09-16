@@ -33,7 +33,6 @@ export class LoginComponent implements OnDestroy {
     this.isLogin = true;
     this.loginSub = this._AuthService.sendLogin(this.loginForm.value).subscribe({
       next: (response) => {
-        console.log(response);
         if(localStorage.getItem('NavigateTo') !== null)
         {
           this._Router.navigate([localStorage.getItem('NavigateTo')]);
