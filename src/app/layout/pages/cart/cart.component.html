@@ -4,7 +4,7 @@
     <div class="flex items-center justify-between">
       <div>
         <h2 class="text-main text-[30px] font-extrabold">Shop cart</h2>
-        <h5>total price : {{myCart?.data?.totalCartPrice}}</h5>
+        <h5>total price : {{myCart?.data?.totalCartPrice}} EGP</h5>
       </div>
       <div>
         <button  [routerLink]="['/checkout',myCart?.cartId]"  class="btn-main">Check out</button>
